@@ -11,6 +11,8 @@ heatIncreaseCounter = 0;
 heatIncrease = 1;
 heatAcceleration = 0.1;
 
+heatAccelerateIncrease = 0.0005;
+
 coolantHeatReduce = 10;
 coolantHeatDeceleration = 0.8;
 

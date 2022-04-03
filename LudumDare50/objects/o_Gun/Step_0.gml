@@ -15,6 +15,11 @@ function shoot(shootDirection){
 	}
 	readyToFire = false;
 	reloadTimeCounter = 0;
+	//if(instance_number(o_CameraShake) == 0){
+	//	cameraShaker = noone;
+	//}else{
+	//	cameraShaker = instance_find(o_CameraShake,0);
+	//}
 	if(cameraShaker != noone){
 		cameraShaker.shake(cameraShaker.shakeTime);
 	}

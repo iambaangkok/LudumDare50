@@ -12,13 +12,6 @@ if(isShaking){
 }
 
 
-
-function shake(){
-	isShaking = true;
-	alarm[0] = shakeTime;
-}
-
-
 function shake(shakeTime){
 	isShaking = true;
 	alarm[0] = shakeTime;

@@ -6,6 +6,7 @@ heatIncreaseCounter += _dt;
 if(heatIncreaseCounter > heatIncreaseInterval){
 	heatIncreaseCounter -= heatIncreaseInterval;
 	
+	heatAcceleration += heatAccelerateIncrease;
 	heatIncrease += heatAcceleration;
 	
 	currentHeat += heatIncrease;

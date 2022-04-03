@@ -5,7 +5,7 @@ if(isAlive){
 	key_right = keyboard_check(ord("D"));
 	key_jump = keyboard_check(ord("W")) || keyboard_check(vk_space);
 	key_shoot = keyboard_check(ord("K"));
-	key_restart = keyboard_check(ord("R"));
+	key_restart = keyboard_check_pressed(vk_enter);
 
 	// States
 	isGrounded = place_meeting(x,y+1,o_Wall);
@@ -59,7 +59,7 @@ if(isAlive){
 	}
 	// Enemy Collision
 	if (place_meeting(x,y,o_SlimeBig) || place_meeting(x,y,o_SlimeSmall)){
-		wallChamber.heatAcceleration = 1;
+		wallChamber.heatAcceleration = 5;
 		isAlive = false;
 		hSpeed = 0;
 		audio_play_sound(sfx_PlayerDie,10,false);
@@ -72,8 +72,13 @@ if(isAlive){
 
 	gun.x = x;
 	gun.y = y;	
+	
+	
+	if(key_restart){
+		room_restart()
+	}
 }else{
-	key_restart = keyboard_check(ord("R"));
+	key_restart = keyboard_check_pressed(vk_enter);
 	if(key_restart){
 		room_restart()
 	}
