@@ -1,5 +1,7 @@
 # Coolant! - LD50
 
+![screenshot3](https://raw.githubusercontent.com/iambaangkok/LudumDare50/master/itchassets/screenshot3.PNG)
+
 The Reactor is heating up and it will explode!! ... unless you cool it down with something ... maybe a Coolant!
 
 **Coolants** are dropped around the map and you must take them to the **Reactor**.
