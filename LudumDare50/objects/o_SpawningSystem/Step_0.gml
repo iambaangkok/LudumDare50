@@ -12,6 +12,7 @@ function randomlySpawn(){
 	var len = array_length(spawners);
 	var rand = random(len-1);
 	
+	audio_play_sound(sfx_Spawn,10,false);
 	spawners[rand].spawn();
 }
 

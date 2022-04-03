@@ -5,6 +5,7 @@ if(isAlive){
 	key_right = keyboard_check(ord("D"));
 	key_jump = keyboard_check(ord("W")) || keyboard_check(vk_space);
 	key_shoot = keyboard_check(ord("K"));
+	key_restart = keyboard_check(ord("R"));
 
 	// States
 	isGrounded = place_meeting(x,y+1,o_Wall);
@@ -22,6 +23,7 @@ if(isAlive){
 	
 		if(key_jump){
 			vSpeed = -jumpSpeed;
+			audio_play_sound(jumpSound,10,false);
 		}
 	}
 
@@ -59,6 +61,8 @@ if(isAlive){
 	if (place_meeting(x,y,o_SlimeBig) || place_meeting(x,y,o_SlimeSmall)){
 		wallChamber.heatAcceleration = 1;
 		isAlive = false;
+		hSpeed = 0;
+		audio_play_sound(sfx_PlayerDie,10,false);
 	}
 
 	// Guns
@@ -67,27 +71,43 @@ if(isAlive){
 	}
 
 	gun.x = x;
-	gun.y = y;
+	gun.y = y;	
+}else{
+	key_restart = keyboard_check(ord("R"));
+	if(key_restart){
+		room_restart()
+	}
+}
 
+// Animation
+if(!isGrounded){
+	sprite_index = s_PlayerJump;
+}else if(hSpeed != 0){
+	sprite_index = s_PlayerRun;
+}else{
+	sprite_index = s_PlayerIdle;
+}
 
-	// Animation
-	if(!isGrounded){
-		sprite_index = s_PlayerJump;
-	}else if(hSpeed != 0){
-		sprite_index = s_PlayerRun;
+if(hSpeed > 0){
+	image_xscale = 1;
+	gun.image_xscale = 1;
+	isFacingRight = 1;
+}else if(hSpeed < 0){
+	image_xscale = -1;
+	gun.image_xscale = -1;
+	isFacingRight = -1;
+}
+// Sound
+if(isGrounded){
+	if(hSpeed != 0){
+		if(!audio_is_playing(walkSound)){
+			audio_play_sound(walkSound,10,true);
+		}
 	}else{
-		sprite_index = s_PlayerIdle;
+		audio_stop_sound(walkSound);
 	}
-
-	if(hSpeed > 0){
-		image_xscale = 1;
-		gun.image_xscale = 1;
-		isFacingRight = 1;
-	}else if(hSpeed < 0){
-		image_xscale = -1;
-		gun.image_xscale = -1;
-		isFacingRight = -1;
-	}
+}else{
+		audio_stop_sound(walkSound);
 }
 
 

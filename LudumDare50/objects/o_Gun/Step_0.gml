@@ -15,7 +15,11 @@ function shoot(shootDirection){
 	}
 	readyToFire = false;
 	reloadTimeCounter = 0;
-	cameraShaker.shake();
+	if(cameraShaker != noone){
+		cameraShaker.shake();
+	}
+	var rand = floor(random(array_length(shootSounds)));
+	audio_play_sound(shootSounds[rand], 10, false);
 	
 	if(shootDirection > 0){// shoot right
 		bulletFired = instance_create_depth(x+muzzleOffsetX,y+muzzleOffsetY,200,bullet);

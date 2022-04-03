@@ -51,6 +51,7 @@ if(place_meeting(x,y, o_Bullet)){
 }
 
 function takeDamage(damage){
+	audio_play_sound(sfx_BulletHit1, 10, false);
 	currentHp = clamp(currentHp-damage, 0, maxHp);
 }
 
