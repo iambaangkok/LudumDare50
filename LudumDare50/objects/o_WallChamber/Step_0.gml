@@ -13,3 +13,26 @@ if(heatIncreaseCounter > heatIncreaseInterval){
 }
 
 heat.image_yscale = currentHeat/maxHeat;
+
+if(!hasExploded && currentHeat == maxHeat){
+	hasExploded = true;
+	audio_play_sound(sfx_YouLost,10,false);
+	shake();
+}
+
+
+// Shaking
+if(isShaking){
+	phy_position_x = originalX + random_range(-shakeAmount, shakeAmount);
+	phy_position_y = originalY + random_range(-shakeAmount, shakeAmount);
+}else{
+	phy_position_x = originalX;
+	phy_position_y = originalY;
+}
+
+
+function shake(){
+	isShaking = true;
+	alarm[0] = shakeTime;
+	cameraShaker.shake(shakeTime);
+}

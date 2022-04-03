@@ -16,7 +16,7 @@ function shoot(shootDirection){
 	readyToFire = false;
 	reloadTimeCounter = 0;
 	if(cameraShaker != noone){
-		cameraShaker.shake();
+		cameraShaker.shake(cameraShaker.shakeTime);
 	}
 	var rand = floor(random(array_length(shootSounds)));
 	audio_play_sound(shootSounds[rand], 10, false);
