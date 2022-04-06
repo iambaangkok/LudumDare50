@@ -15,6 +15,12 @@ But that is not so easy because when the Coolant spawns, some **inter-dimensiona
 - Jump - W / Space
 - Shoot - K
 
+### Development
+- GameEngine - GameMaker Studio 2
+- Graphics - Aseprite
+- Music - Traction Waveform 11 (DAW) - I played the instruments myself 
+- SFXs - My oral cavity / throat / fist / other body parts
+
 
 This game is a part of Ludum Dare 50; with the theme *Delay the inevitable*.
 
